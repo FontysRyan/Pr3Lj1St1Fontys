@@ -1,6 +1,8 @@
 extends Node2D
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
-
+var zones: int = 1
+var racks: int = 1
+var compartments: int = 5
 
 func _ready():
 	#corner tile locations
