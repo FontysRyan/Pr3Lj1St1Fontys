@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8dj6jmoio8t4"]
+
+[ext_resource type="Script" path="res://node.gd" id="1_ms728"]
+
+[node name="HTTP Controller" type="Node"]
+script = ExtResource("1_ms728")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

@@ -3,29 +3,44 @@ from sqlalchemy import create_engine, text, MetaData
 from dotenv import load_dotenv
 import os
 
-# DATABASE-CONNECTIE
-
-load_dotenv(override=True)
-
-print(os.getenv('DB_USER'))
-print(os.getenv('DB_PASS'))
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = (
-    f"mysql+pymysql://"
-    f"{os.getenv('DB_USER')}:{os.getenv('DB_PASS')}"
-    f"@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}"
-)
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-engine = create_engine(
-    f"mysql+pymysql://"
-    f"{os.getenv('DB_USER')}:{os.getenv('DB_PASS')}"
-    f"@{os.getenv('DB_HOST')}/{os.getenv('DB_NAME')}"
-)
-print(os.getenv('DB_USER'))
-
+# DATABASE-CONNECTIE
+engine = create_engine("mysql+pymysql://vsadmin:visupapa@192.168.133.123:3306/visustore")
+with engine.connect() as conn:
+    print("Verbonden met de database.")
 metadata = MetaData()
 metadata.reflect(bind=engine)
+
+
+#-------------------Testen van connectie-------------------
+
+# def insert_into(table_name: str, data: dict):
+#     """
+#     Insert een rij in de opgegeven tabel via SQLAlchemy Core.
+#     """
+#     # 1. Table-object ophalen
+#     if table_name not in metadata.tables:
+#         raise ValueError(f"Tabel '{table_name}' niet gevonden in metadata.")
+#     table = metadata.tables[table_name]
+
+#     # 2. Insert-statement bouwen
+#     stmt = table.insert().values(**data)
+
+#     # 3. Uitvoeren
+#     with engine.connect() as conn:
+#         conn.execute(stmt)
+#         conn.commit()
+#         print(f"1 rij toegevoegd aan {table_name}.")
+
+# # Voorbeeldgebruik:
+# insert_into("warehouses", {
+#     "name": "East Hub",
+#     "address": "Laan 10",
+#     "city": "Utrecht",
+#     "postal_code": "3500BB"
+# })
+
 
 # INSERT ENDPOINT
 @app.route("/insert/<table_name>", methods=["POST"])
@@ -41,7 +56,7 @@ def insert_into(table_name):
     
     return jsonify({"status": "success", "message": f"Inserted into {table_name}"}), 201
 
-# SELECT ENDPOINT
+# # SELECT ENDPOINT
 @app.route("/select/<table_name>", methods=["GET"])
 def select_from(table_name):
     filters = request.args.to_dict()
@@ -59,7 +74,7 @@ def select_from(table_name):
     
     return jsonify(rows)
 
-# DELETE ENDPOINT
+# # DELETE ENDPOINT
 @app.route("/delete/<table_name>", methods=["DELETE"])
 def delete_from(table_name):
     filters = request.args.to_dict()
