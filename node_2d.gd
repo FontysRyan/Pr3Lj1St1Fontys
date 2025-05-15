@@ -1,8 +1,19 @@
+# 1 x 1 comparment
+# Wil beginnen generen bij 0,31 in vector2i 
+# var racks klopt en werkt goed, nu nog alleen compartments. 
+# racks worden niet geneneert als tiles, compartments moeten wel. Een rek is verticale rij aan compartments.
+# Wat lukt niet: de onderste versie van de muur (zone muur) maar de tweede horizon tale muur gaat fout. Die gaat te hoog of te laag.
+
+# nu nog de width van de zone. height klopt wel.
+# zone width moet berekent worden als volgende: 1 comparment (tegen muur) daarna witte space daarna 2 compartments (niet tegen muur) en zo door gaan. Hoewel laatste dan wel tegen muur weer is en daarom de zone muur aan rechterkant ook inplaats nog comparment.
+# zone max height is 31. zone max width is 71.
+# als compartment te hoog wordt, dan gaat hij spatie en dan naar volgende lijn. Dus bv: zone muur comparment leeg compartment compartment leeg compartment zone muur.
+
 extends Node2D
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
 var zones: int = 1
-var racks: int = 1
-var compartments: int = 2
+var racks: int = 2
+var compartments: int = 40
 var i: int = 0
 
 func _ready():
@@ -27,20 +38,50 @@ func _input(event):
 		
 
 func MakeZone():
-	var zoneWidth: int = (5 * racks) 
-	var zoneHeight: int = (5 * compartments) 
-	print(zoneHeight)
-	print(zoneWidth)
+	var maxY = 31
+	var minY = 0
+	var maxX = 71
+	var startX = 0
+	var currentX = startX
 
-	for i in range(zoneHeight):
-			var Vwall = 31 - i
-			var Vwall2 = 4 * racks
-			tile_map_layer.set_cell(Vector2i(0,Vwall), 0, Vector2i(2, 1), 0) #start
-			tile_map_layer.set_cell(Vector2i(Vwall2,Vwall), 0, Vector2i(2, 1), 0) #start
-			i + 1
-	for i in range(zoneWidth):
-			var Hwall = 0 + i
-			var Hwall2 = 31 - (4 * compartments)
-			tile_map_layer.set_cell(Vector2i(Hwall,31), 0, Vector2i(2, 1), 0) #start
-			tile_map_layer.set_cell(Vector2i(Hwall,Hwall2), 0, Vector2i(2, 1), 0) #start
-			i + 1
+	var usedCompartments = 0
+	var compartmentsPerColumn = []
+
+	# 1. Start position for left wall (drawn later)
+	var wallXLeft = currentX
+	currentX += 1  # space after the left wall for the first compartment
+
+	# 2. Place compartments in columns
+	while usedCompartments < compartments and currentX < maxX - 1:
+		var columnCompartments = 0
+		var currentY = maxY - 1  # below the top wall
+
+		# Place compartments vertically
+		while usedCompartments < compartments and currentY >= minY + 1:
+			tile_map_layer.set_cell(Vector2i(currentX, currentY), 0, Vector2i(1, 0), 0)
+			columnCompartments += 1
+			usedCompartments += 1
+			currentY -= 2  # compartment + space
+
+		compartmentsPerColumn.append(columnCompartments)
+		currentX += 1  # next column
+
+		# skip aisle (1 column whitespace)
+		if usedCompartments < compartments and currentX < maxX - 1:
+			currentX += 1
+
+	# 3. Right wall comes AFTER the last column
+	var wallXRight = currentX
+
+	# 4. Place walls
+	tile_map_layer.set_cell(Vector2i(wallXLeft, maxY), 0, Vector2i(2, 1), 0)  # left wall
+	tile_map_layer.set_cell(Vector2i(wallXRight, maxY), 0, Vector2i(2, 1), 0)  # right wall
+
+	for x in range(wallXLeft, wallXRight + 1):
+		tile_map_layer.set_cell(Vector2i(x, maxY), 0, Vector2i(2, 1), 0)  # top wall
+		tile_map_layer.set_cell(Vector2i(x, minY), 0, Vector2i(2, 1), 0)  # bottom wall
+
+	# 5. Debug
+	print("Zone from X:", wallXLeft, "to X:", wallXRight)
+	print("Total compartments:", usedCompartments)
+	print("Compartments per column:", compartmentsPerColumn)
