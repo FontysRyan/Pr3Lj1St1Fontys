@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm7qehg7w6u08"]
+[gd_scene load_steps=7 format=3 uid="uid://cm7qehg7w6u08"]
 
 [ext_resource type="Script" uid="uid://dxxxtip64burn" path="res://node_2d.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://bl33dllc3p3qu" path="res://grid_test.png" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://c14ahoh21d3ej" path="res://tileset_2.png" id="3_epypp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
 texture = ExtResource("2_epypp")
@@ -15,8 +16,17 @@ texture = ExtResource("2_epypp")
 1:2/0 = 0
 2:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6r6c"]
+texture = ExtResource("3_epypp")
+1:0/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_q6r6c"]
 sources/0 = SubResource("TileSetAtlasSource_0hol4")
+sources/1 = SubResource("TileSetAtlasSource_q6r6c")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0e48y")
