@@ -7,7 +7,7 @@ func _unhandled_input(event):
 
 		var tile_data = get_cell_tile_data(tile_coords)
 		if tile_data:
-			var tile_name = tile_data.get_custom_data("name")
+			var tile_name = tile_data.get_custom_data("Compartment_name")
 			if tile_name:
 				print("Je klikte op tile:", tile_name)
 			else:
