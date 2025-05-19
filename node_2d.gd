@@ -1,8 +1,8 @@
 extends Node2D
 @onready var tile_map_layer: TileMapLayer = $TileMapLayer
 var zones: int = 1
-var rack_ammount: int = 90
-var compartment_ammount: int = 29
+var rack_ammount: int = 10
+var compartment_ammount: int = 50
 var shelve_ammount: int = 5
 func _ready():
 	#corner tile locations
@@ -21,7 +21,7 @@ func _process(_delta):
 		#print("fffff")
 		#var grid_pos = tile_map_layer.local_to_map(get_local_mouse_position())
 		#print(grid_pos)
-		#tile_map_layer.set_cell(grid_pos, 0, Vector2i(0, 0), 0)
+	
 func CalculateZone():
 	var ZoneHeight: int = 4 + compartment_ammount
 	var zonewidth: int = calculate_zone_width(rack_ammount)
@@ -40,6 +40,7 @@ func CalculateZone():
 	print("- There is 1 floor tile before the first and after the last compartment.")
 	print("- Including walls (1 on each side), this adds 4 extra tiles.")
 	print("- Final zone height: ", ZoneHeight, " tiles\n")
+	
 	PlaceWalls(zonewidth, ZoneHeight)
 	PlaceFloor(zonewidth, ZoneHeight)
 	PlaceCompartments()

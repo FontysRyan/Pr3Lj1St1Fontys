@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm7qehg7w6u08"]
+[gd_scene load_steps=9 format=3 uid="uid://cm7qehg7w6u08"]
 
-[ext_resource type="Script" uid="uid://dxxxtip64burn" path="res://node_2d.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://dxxxtip64burn" path="res://node_2d.gd" id="2_0hol4"]
 [ext_resource type="Texture2D" uid="uid://bl33dllc3p3qu" path="res://grid_test.png" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://c14ahoh21d3ej" path="res://tileset_2.png" id="3_epypp"]
+[ext_resource type="Script" uid="uid://duybtveebf0ch" path="res://api_connect.gd" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://wxfsaee3pash" path="res://tile_map_layer.gd" id="5_q6r6c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
 texture = ExtResource("2_epypp")
@@ -29,7 +31,13 @@ sources/0 = SubResource("TileSetAtlasSource_0hol4")
 sources/1 = SubResource("TileSetAtlasSource_q6r6c")
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_0e48y")
+script = ExtResource("4_0hol4")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_0hol4")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Node2D"]
 tile_set = SubResource("TileSet_q6r6c")
+script = ExtResource("5_q6r6c")
