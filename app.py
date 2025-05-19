@@ -59,19 +59,29 @@ def insert_into(table_name):
 # # SELECT ENDPOINT
 @app.route("/select/<table_name>", methods=["GET"])
 def select_from(table_name):
-    filters = request.args.to_dict()
-    query = f"SELECT * FROM {table_name}"
+    args = request.args.to_dict()
     
-    if filters:
-        conditions = " AND ".join(f"{k} = :{k}" for k in filters)
+    # Kolommen om op te halen, standaard '*'
+    columns = args.pop("columns", "*")
+    if columns != "*":
+        column_list = [col.strip() for col in columns.split(",")]
+        column_str = ", ".join(column_list)
+    else:
+        column_str = "*"
+    
+    # Filters (overige query parameters)
+    query = f"SELECT {column_str} FROM {table_name}"
+    
+    if args:
+        conditions = " AND ".join(f"{k} = :{k}" for k in args)
         query += f" WHERE {conditions}"
 
     query = text(query)
 
     with engine.connect() as conn:
-        result = conn.execute(query, filters)
+        result = conn.execute(query, args)
         rows = result.mappings().all()
-    
+
     return jsonify(rows)
 
 # # DELETE ENDPOINT
@@ -89,6 +99,29 @@ def delete_from(table_name):
         conn.commit()
     
     return jsonify({"deleted_rows": result.rowcount})
+
+# GET PRODUCTS BY WAREHOUSE ENDPOINT
+@app.route("/select/products/by-warehouse/<int:warehouse_id>", methods=["GET"])
+def get_products_by_warehouse(warehouse_id):
+    try:
+        query = text("""
+            SELECT DISTINCT p.*
+            FROM products p
+            JOIN product_locations pl ON p.product_id = pl.product_id
+            JOIN zones z ON pl.zone_id = z.zone_id
+            WHERE z.warehouse_id = :warehouse_id
+        """)
+
+        with engine.connect() as conn:
+            result = conn.execute(query, {"warehouse_id": warehouse_id})
+            rows = [dict(row) for row in result.mappings().all()]
+
+        return jsonify(rows)
+
+    except Exception as e:
+        print("ERROR:", str(e))
+        return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
