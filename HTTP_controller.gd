@@ -66,10 +66,12 @@ func _ready() -> void:
 	print(Global.rack_amount)
 	
 	#--- Bereken hoeveel compartments per rack er zijn ---
+
 	Global.compartment_amount = get_compartment_amount()
 	print(Global.compartment_amount)
 	
 	#--- Bereken hoeveel shelves per rack er zijn ---
+
 	Global.shelf_amount = get_shelf_amount()
 	print(Global.shelf_amount)
 	
