@@ -1,0 +1,422 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\services\\compartmentsapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\services\\compartmentsapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\shelves\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\shelves\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\services\\productsapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\services\\productsapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\shelves\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\shelves\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\racks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\racks\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\services\\productlocationsapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\services\\productlocationsapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\services\\warehousesapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\services\\warehousesapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\models\\productlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\models\\productlocation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\services\\shelvesapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\services\\shelvesapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\services\\racksapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\services\\racksapiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\models\\shelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\models\\shelf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\racks\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\racks\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\compartments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\compartments\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\compartments\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\compartments\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\products\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\products\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\warehouses\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\warehouses\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\products\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\warehouses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\warehouses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\models\\rack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\models\\rack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\models\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\models\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\models\\compartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\models\\compartment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|c:\\users\\carsc\\onedrive - office 365 fontys\\semester 1\\[p4] visustore (groep)\\visustore\\visustore\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC5B7340-BD6F-47FA-81E4-9A2657C09BC1}|VisuStore\\VisuStore.csproj|solutionrelative:visustore\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductLocationsApiService.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\ProductLocationsApiService.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Services\\ProductLocationsApiService.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\ProductLocationsApiService.cs",
+              "RelativeToolTip": "VisuStore\\Services\\ProductLocationsApiService.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAkwCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T12:14:54.874Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductLocation.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\ProductLocation.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Models\\ProductLocation.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\ProductLocation.cs",
+              "RelativeToolTip": "VisuStore\\Models\\ProductLocation.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA5wB4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T12:11:15.785Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Warehouses\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Warehouses\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Warehouses\\Index.cshtml.cs",
+              "RelativeToolTip": "VisuStore\\Pages\\Warehouses\\Index.cshtml.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T11:59:44.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Shelves\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Shelves\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Shelves\\Index.cshtml.cs",
+              "RelativeToolTip": "VisuStore\\Pages\\Shelves\\Index.cshtml.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAArwCUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T11:14:40.692Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Shelves\\Index.cshtml",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Shelves\\Index.cshtml",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Shelves\\Index.cshtml",
+              "RelativeToolTip": "VisuStore\\Pages\\Shelves\\Index.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAADwvyMAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-19T11:14:34.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Compartments\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Compartments\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Compartments\\Index.cshtml.cs",
+              "RelativeToolTip": "VisuStore\\Pages\\Compartments\\Index.cshtml.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T11:13:53.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ShelvesApiService.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\ShelvesApiService.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Services\\ShelvesApiService.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\ShelvesApiService.cs",
+              "RelativeToolTip": "VisuStore\\Services\\ShelvesApiService.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBYAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T11:11:45.544Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CompartmentsApiService.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\CompartmentsApiService.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Services\\CompartmentsApiService.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\CompartmentsApiService.cs",
+              "RelativeToolTip": "VisuStore\\Services\\CompartmentsApiService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBMAAABeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T11:11:36.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Compartments\\Index.cshtml",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Compartments\\Index.cshtml",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Compartments\\Index.cshtml",
+              "RelativeToolTip": "VisuStore\\Pages\\Compartments\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-19T11:10:37.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Shelf.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Shelf.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Models\\Shelf.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Shelf.cs",
+              "RelativeToolTip": "VisuStore\\Models\\Shelf.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T11:03:19.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Compartment.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Compartment.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Models\\Compartment.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Compartment.cs",
+              "RelativeToolTip": "VisuStore\\Models\\Compartment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T10:53:22.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "RacksAPIService.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\RacksAPIService.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Services\\RacksAPIService.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\RacksAPIService.cs",
+              "RelativeToolTip": "VisuStore\\Services\\RacksAPIService.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBQAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T09:37:03.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Rack.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Rack.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Models\\Rack.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Rack.cs",
+              "RelativeToolTip": "VisuStore\\Models\\Rack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T09:36:21.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Racks\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Racks\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Racks\\Index.cshtml.cs",
+              "RelativeToolTip": "VisuStore\\Pages\\Racks\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-19T09:35:48.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Racks\\Index.cshtml",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Racks\\Index.cshtml",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Racks\\Index.cshtml",
+              "RelativeToolTip": "VisuStore\\Pages\\Racks\\Index.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAABiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-19T09:33:13.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Products\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Products\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Products\\Index.cshtml.cs",
+              "RelativeToolTip": "VisuStore\\Pages\\Products\\Index.cshtml.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T17:21:40.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Program.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Program.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Program.cs",
+              "RelativeToolTip": "VisuStore\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T21:04:34.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Product.cs",
+              "RelativeToolTip": "VisuStore\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T17:29:21.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductsApiService.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\ProductsApiService.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Services\\ProductsApiService.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\ProductsApiService.cs",
+              "RelativeToolTip": "VisuStore\\Services\\ProductsApiService.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAAADAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T17:26:00.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Warehouses\\Index.cshtml",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Warehouses\\Index.cshtml",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Warehouses\\Index.cshtml",
+              "RelativeToolTip": "VisuStore\\Pages\\Warehouses\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-17T11:58:36.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Products\\Index.cshtml",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Products\\Index.cshtml",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Products\\Index.cshtml",
+              "RelativeToolTip": "VisuStore\\Pages\\Products\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-17T11:59:21.242Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WarehousesApiService.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\WarehousesApiService.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Services\\WarehousesApiService.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Services\\WarehousesApiService.cs",
+              "RelativeToolTip": "VisuStore\\Services\\WarehousesApiService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T11:53:30.554Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Warehouse.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Warehouse.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Models\\Warehouse.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Models\\Warehouse.cs",
+              "RelativeToolTip": "VisuStore\\Models\\Warehouse.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T11:50:54.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "VisuStore\\Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-17T11:50:08.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "VisuStore\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\carsc\\OneDrive - Office 365 Fontys\\Semester 1\\[P4] VisuStore (Groep)\\VisuStore\\VisuStore\\Pages\\Index.cshtml",
+              "RelativeToolTip": "VisuStore\\Pages\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-16T13:44:34.618Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

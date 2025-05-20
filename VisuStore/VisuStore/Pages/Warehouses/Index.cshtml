@@ -1,0 +1,37 @@
+﻿@page
+@model VisuStore.Pages.Warehouses.IndexModel
+@{
+    ViewData["Title"] = "Warehouse Dashboard";
+}
+
+<h2>Warehouse Dashboard</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Postal</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var w in Model.Warehouses)
+        {
+            <tr>
+                <td>@w.Name</td>
+                <td>@w.City</td>
+                <td>@w.Postal_Code</td>
+                <td>
+                    <!-- Link naar productenpagina per warehouse -->
+                    <a asp-page="/Products/Index" asp-route-id="@w.Warehouse_Id" class="btn btn-sm btn-primary">
+                        View Products
+                    </a>
+                    <a asp-page="/Racks/Index" asp-route-id="@w.Warehouse_Id" class="btn btn-sm btn-primary">
+                        View Racks
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

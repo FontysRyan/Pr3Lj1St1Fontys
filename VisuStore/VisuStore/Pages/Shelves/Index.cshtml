@@ -1,0 +1,54 @@
+﻿@page "{id:int}"
+@model VisuStore.Pages.Shelves.IndexModel
+@{
+    ViewData["Title"] = "Shelves in Warehouse";
+}
+
+<h2>Shelves in Warehouse @Model.CompartmentId</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Shelf ID</th>
+            <th>Compartment ID</th>
+            <th>Shelf Number</th>
+            <th>Max Weight</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var shelf in Model.Shelves)
+        {
+            <tr>
+                <td>@shelf.Shelf_Id</td>
+                <td>@shelf.Compartment_Id</td>
+                <td>@shelf.Shelf_Number</td>
+                <td>@shelf.Max_Weight</td>
+                <td>Product</td>
+                @{
+                    var productsInShelf = Model.ProductLocations
+                    .Where(p => p.Shelf_Id == shelf.Shelf_Id)
+                    .ToList();
+                }
+
+                @if (productsInShelf.Any())
+                {
+                    <td>
+                        @foreach (var pl in productsInShelf)
+                        {
+                            <span>@pl.Product?.Name</span>
+                            <a asp-page="/Products/Details" asp-route-id="@pl.Product_Id" class="btn btn-sm btn-primary">
+                                Product ID: @pl.Product_Id
+                            </a>
+                        }
+                    </td>
+                }
+                else
+                {
+                    <td>
+						<span class="text-muted">No products</span>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>

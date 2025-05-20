@@ -1,0 +1,40 @@
+﻿@page "{id:int}"
+@model VisuStore.Pages.Products.IndexModel
+@{
+    ViewData["Title"] = "Products in Warehouse";
+}
+
+<h2>Products in @Model.CurrentWarehouse.Name</h2>
+
+<a asp-page="/Warehouses/Index" class="btn btn-secondary mb-3">← Back to Warehouses</a>
+
+@if (Model.Products.Count == 5)
+{
+    <div class="alert alert-warning">No products found in this warehouse.</div>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SKU</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Weight</th>
+                <th>Barcode</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in Model.Products)
+            {
+                <tr>
+                    <td>@p.Sku</td>
+                    <td>@p.Name</td>
+                    <td>@p.Description</td>
+                    <td>@p.Weight</td>
+                    <td>@p.Barcode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

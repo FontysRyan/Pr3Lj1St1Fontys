@@ -1,0 +1,35 @@
+﻿@page "{id:int}"
+@model VisuStore.Pages.Racks.IndexModel
+@{
+    ViewData["Title"] = "Racks Dashboard";
+}
+
+<h2>Racks Dashboard</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Rack ID</th>
+            <th>Zone ID</th>
+            <th>Rack Number</th>
+            <th>Capacity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rack in Model.Racks)
+        {
+            <tr>
+                <td>@rack.Rack_Id</td>
+                <td>@rack.Zone_Id</td>
+				<td>@rack.Rack_Number</td>
+                <td>@rack.Capacity</td>
+				<td>
+					<!-- Link to compartments page -->
+					<a asp-page="/Compartments/Index" asp-route-id="@rack.Rack_Id" class="btn btn-sm btn-primary">
+						View Compartments
+					</a>
+            </tr>
+        }
+    </tbody>
+</table>

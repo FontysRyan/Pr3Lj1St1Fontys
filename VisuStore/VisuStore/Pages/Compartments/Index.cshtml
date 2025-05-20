@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@model VisuStore.Pages.Compartments.IndexModel
+@{
+    ViewData["Title"] = "Compartments in Warehouse";
+}
+
+<h2>Compartments in Rack @Model.RackId</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Compartment ID</th>
+            <th>Rack ID</th>
+            <th>Compartment Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model.Compartments)
+        {
+            <tr>
+                <td>@c.Compartment_Id</td>
+                <td>@c.Rack_Id</td>
+                <td>@c.Compartment_Number</td>
+                <td>
+                    <!-- Link to shelves page -->
+                    <a asp-page="/Shelves/Index" asp-route-id="@c.Compartment_Id" class="btn btn-sm btn-primary">
+                        View Shelves
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
