@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm7qehg7w6u08"]
+[gd_scene load_steps=10 format=3 uid="uid://cm7qehg7w6u08"]
 
 [ext_resource type="Script" uid="uid://dxxxtip64burn" path="res://node_2d.gd" id="2_0hol4"]
 [ext_resource type="Texture2D" uid="uid://bl33dllc3p3qu" path="res://grid_test.png" id="2_epypp"]
 [ext_resource type="Texture2D" uid="uid://c14ahoh21d3ej" path="res://tileset_2.png" id="3_epypp"]
 [ext_resource type="Script" uid="uid://duybtveebf0ch" path="res://api_connect.gd" id="4_0hol4"]
+[ext_resource type="Script" uid="uid://c7cc0tejeb2x6" path="res://HTTP_controller.gd" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://tc6g8oovelg8" path="res://Move_Camera.gd" id="6_kdubu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
 texture = ExtResource("2_epypp")
@@ -41,7 +43,11 @@ script = ExtResource("2_0hol4")
 tile_set = SubResource("TileSet_q6r6c")
 
 [node name="Node" type="Node" parent="."]
+script = ExtResource("5_q6r6c")
 
 [node name="HTTPRequest" type="HTTPRequest" parent="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("6_kdubu")
 
 [connection signal="request_completed" from="Node/HTTPRequest" to="Node" method="_on_http_request_request_completed"]

@@ -6,13 +6,15 @@ var rack_ammount: int = 200
 var compartment_ammount: int = 5
 
 func _ready():
-	#await get_tree().create_timer(5.2).timeout
+	await get_tree().create_timer(10.2).timeout
 	#Global.rack_amount
 	#corner tile locations
 	#tile_map_layer.set_cell(Vector2i(0,31), 0, Vector2i(2, 0), 0) #bottom-left
 	#tile_map_layer.set_cell(Vector2i(71,0), 0, Vector2i(2, 0), 0) #top-right
 	#tile_map_layer.set_cell(Vector2i(71,31), 0, Vector2i(2, 0), 0) #buttom right
 	#tile_map_layer.set_cell(Vector2i(0,0), 0, Vector2i(2, 0), 0) #start top-left
+	rack_ammount = Global.rack_amount
+	compartment_ammount = Global.compartment_amount
 	if rack_ammount > 100:
 		print("WARNING: RACK AMMOUNT OUT RANGE: AUTO RESET TO 100")
 		rack_ammount = 100
