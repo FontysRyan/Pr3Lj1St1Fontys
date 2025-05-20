@@ -1,20 +1,33 @@
 extends Node
 
+# Dit script beheert data voor een warehouse management systeem
+# Het communiceert met een externe API en beheert verschillende datasets
+# voor zones, racks, compartments, shelves, products en hun locaties
+
 var latest_data
 var current_table: String = ""
 
 # --- Data storage ---
-var zones_data: Array = []
-var racks_data: Array = []
-var shelves_data: Array = []
-var compartments_data: Array = []
-var products_data: Array = []
-var product_locations_data: Array = []
+# Arrays voor het opslaan van verschillende datatypen uit de database
+var zones_data: Array = []       # Magazijngebieden
+var racks_data: Array = []       # Stellingen in het magazijn
+var shelves_data: Array = []     # Planken binnen compartments
+var compartments_data: Array = [] # Compartimenten binnen stellingen
+var products_data: Array = []    # Productgegevens
+var product_locations_data: Array = [] # Link tussen producten en hun locatie
 
+# Statistieken over de magazijnstructuur
+#var rack_amount           # Totaal aantal stellingen
+#var compartment_amount    # Aantal compartments per rack
+#var shelf_amount          # Aantal shelves per compartment
+
+# Vlaggen om bij te houden of data is geladen
 var shelves_loaded = false
 var products_loaded = false
 
+# Wordt uitgevoerd bij het starten van de node
 func _ready() -> void:	
+	# Uitgecommentarieerde code voor het aanmaken van test-warehouses en zones
 	#post_data("http://192.168.133.123:5000/insert/warehouses", {
 		#"name" : "Main warehouse",
 		#"city" : "Eindhoven",
@@ -28,8 +41,10 @@ func _ready() -> void:
 		#"zone_type" : "storage"
 	#})
 	
-
+	# Laad eerst alle bestaande data uit de database
 	await load_all_data_from_db()
+	
+	# --- Uitgecommentarieerde functies om de database met testdata te vullen ---
 	
 	#--- Populeer de database met X hoeveelheid racks ---
 	#insert_x_times_racks(43)
@@ -48,12 +63,15 @@ func _ready() -> void:
 	
 	#--- Bereken hoeveel racks er zijn ---
 	Global.rack_amount = get_rack_amount()
+	print(Global.rack_amount)
 	
 	#--- Bereken hoeveel compartments per rack er zijn ---
 	Global.compartment_amount = get_compartment_amount()
+	print(Global.compartment_amount)
 	
 	#--- Bereken hoeveel shelves per rack er zijn ---
 	Global.shelf_amount = get_shelf_amount()
+	print(Global.shelf_amount)
 	
 	#var products = find_product_by_location("A", 1, 1)
 	
@@ -61,21 +79,26 @@ func _ready() -> void:
 	#print("Received data: " + data)
 	#latest_data = data
 
-var rack_queue: Array = []
-var current_index: int = 0
-var sending: bool = false
+# --- Queue-systeem voor het versturen van rack data ---
+var rack_queue: Array = []       # Wachtrij met racks om te versturen
+var current_index: int = 0       # Huidige positie in de wachtrij
+var sending: bool = false        # Is er momenteel een versturing bezig?
 
+# Berekent het totaal aantal racks in het systeem
 func get_rack_amount():
 	return len(racks_data)
 	
+# Berekent het gemiddeld aantal compartments per rack
 func get_compartment_amount():
 	return len(compartments_data) / len(racks_data)
 	
+# Berekent het gemiddeld aantal shelves per compartment
 func get_shelf_amount():
 	return len(shelves_data) / len(compartments_data)
 	
-# --- Load all data from mysql database ---
+# --- Laadt alle data van alle tabellen uit de MySQL database ---
 func load_all_data_from_db():
+	# Haal alle data op voor elke tabel met korte pauzes tussen de verzoeken
 	current_table = "zones"
 	get_data("zones")
 	await get_tree().create_timer(1.2).timeout
@@ -101,9 +124,10 @@ func load_all_data_from_db():
 	await get_tree().create_timer(1.2).timeout
 
 
-# --- Meerder racks invoegen ---
+# --- Maakt x aantal racks aan en verstuurt ze naar de database ---
 func insert_x_times_racks(x: int) -> void:
 	rack_queue.clear()
+	# Maak x aantal racks en voeg ze toe aan de wachtrij
 	for i in range(x):
 		rack_queue.append({
 			"zone_id": 1,
@@ -114,7 +138,7 @@ func insert_x_times_racks(x: int) -> void:
 	sending = true
 	_send_next_rack()
 
-# --- Actually sending the rack ---
+# --- Verstuurt het volgende rack in de wachtrij naar de database ---
 func _send_next_rack() -> void:
 	if current_index < rack_queue.size():
 		var data = rack_queue[current_index]
@@ -124,24 +148,26 @@ func _send_next_rack() -> void:
 		sending = false
 
 
-var compartment_queue: Array = []
-var current_compartment_index: int = 0
-var sending_compartments: bool = false
+# --- Queue-systeem voor het versturen van compartment data ---
+var compartment_queue: Array = []      # Wachtrij met compartments om te versturen
+var current_compartment_index: int = 0  # Huidige positie in de wachtrij
+var sending_compartments: bool = false  # Is er momenteel een versturing bezig?
 
-# --- Insert X amount of compartments into the mysql database
+# --- Maakt x aantal compartments per rack aan en verstuurt ze naar de database ---
 func insert_x_times_compartments(x: int) -> void:
 	compartment_queue.clear()
+	# Maak voor 86 racks elk x compartments aan
 	for i in range(86):
 		for n in range(x):
 			compartment_queue.append({
-				"rack_id": i + 1,  # adjust this as needed
-				"compartment_number": n + 1
+				"rack_id": i + 1,  # rack ID
+				"compartment_number": n + 1  # compartment nummer binnen het rack
 			})
 	current_compartment_index = 0
 	sending_compartments = true
 	_send_next_compartment()
 
-# --- Actually sending the rack ---
+# --- Verstuurt het volgende compartment in de wachtrij naar de database ---
 func _send_next_compartment() -> void:
 	if current_compartment_index < compartment_queue.size():
 		var data = compartment_queue[current_compartment_index]
@@ -151,24 +177,26 @@ func _send_next_compartment() -> void:
 		print("All compartments inserted.")
 		sending_compartments = false
 
-var shelf_queue: Array = []
-var current_shelf_index: int = 0
-var sending_shelves: bool = false
+# --- Queue-systeem voor het versturen van shelf data ---
+var shelf_queue: Array = []        # Wachtrij met shelves om te versturen
+var current_shelf_index: int = 0    # Huidige positie in de wachtrij 
+var sending_shelves: bool = false   # Is er momenteel een versturing bezig?
 
-# --- Insert X amount of shelves per rack ---
+# --- Maakt voor elk compartment een shelf aan en verstuurt ze naar de database ---
 func insert_shelves_from_compartments() -> void:
 	if compartments_data.is_empty():
 		print("Geen compartimenten geladen, eerst load_all_data_from_db() uitvoeren.")
 		return
 
 	shelf_queue.clear()
+	# Voor elk compartment, maak een corresponderende shelf aan
 	for compartment in compartments_data:
 		var shelf_data = {
 			"zone_id": 1,  # Pas aan indien nodig of haal het uit rack/compartiment data
 			"rack_id": compartment["rack_id"],
 			"compartment_id": compartment["compartment_id"],
 			"shelf_number": compartment["compartment_number"],  # EÃ©n shelf per compartment
-			"max_weight": 57
+			"max_weight": 57  # Maximaal gewicht in kg
 		}
 		shelf_queue.append(shelf_data)
 
@@ -176,7 +204,7 @@ func insert_shelves_from_compartments() -> void:
 	sending_shelves = true
 	_send_next_shelf()
 
-# --- Actually sending shelves one by one ---
+# --- Verstuurt de volgende shelf in de wachtrij naar de database ---
 func _send_next_shelf() -> void:
 	if current_shelf_index < shelf_queue.size():
 		var data = shelf_queue[current_shelf_index]
@@ -186,22 +214,25 @@ func _send_next_shelf() -> void:
 		print("All shelves inserted.")
 		sending_shelves = false
 
-var product_queue: Array = []
-var current_product_index: int = 0
-var sending_products: bool = false
+# --- Queue-systeem voor het versturen van product data ---
+var product_queue: Array = []         # Wachtrij met producten om te versturen
+var current_product_index: int = 0     # Huidige positie in de wachtrij
+var sending_products: bool = false     # Is er momenteel een versturing bezig?
 
+# --- Maakt x aantal producten aan en verstuurt ze naar de database ---
 func insert_x_times_products(x: int) -> void:
 	product_queue.clear()
+	# Maak x aantal producten met willekeurige eigenschappen
 	for i in range(x):
 		var random_index = randi() % product_names.size()
 		var product_name = product_names[random_index]
 		var product_description = product_descriptions[random_index]
 		var product = {
-			"sku": "SKU" + str(i + 1),
-			"name": product_name,
-			"description": product_description,
-			"weight": randf_range(0.5, 57),  # willekeurig gewicht tussen 0.5 en 10.0
-			"barcode": "BAR" + str(100000 + i)
+			"sku": "SKU" + str(i + 1),  # Unieke product code
+			"name": product_name,       # Willekeurige naam uit de lijst
+			"description": product_description,  # Bijbehorende beschrijving
+			"weight": randf_range(0.5, 57),  # Willekeurig gewicht tussen 0.5 en 57 kg
+			"barcode": "BAR" + str(100000 + i)  # Unieke barcode
 		}
 		product_queue.append(product)
 
@@ -209,6 +240,7 @@ func insert_x_times_products(x: int) -> void:
 	sending_products = true
 	_send_next_product()
 	
+# --- Verstuurt het volgende product in de wachtrij naar de database ---
 func _send_next_product() -> void:
 	if current_product_index < product_queue.size():
 		var data = product_queue[current_product_index]
@@ -218,32 +250,36 @@ func _send_next_product() -> void:
 		print("All products inserted.")
 		sending_products = false
 
-var product_location_queue: Array = []
-var current_location_index: int = 0
-var sending_locations: bool = false
+# --- Queue-systeem voor het versturen van product locatie data ---
+var product_location_queue: Array = []    # Wachtrij met product locaties om te versturen
+var current_location_index: int = 0       # Huidige positie in de wachtrij
+var sending_locations: bool = false       # Is er momenteel een versturing bezig?
 
+# --- Genereert toewijzingen tussen producten en shelves en verstuurt ze naar de database ---
 func generate_and_send_product_locations(products: Array, shelves: Array, max_locations: int) -> void:
 	if products.size() == 0 or shelves.size() == 0:
 		print("FOUT: Geen producten of shelves beschikbaar.")
 		return
 
 	product_location_queue.clear()
-	var statuses = ["in_stock", "reserved", "damaged"]
+	var statuses = ["in_stock", "reserved", "damaged"]  # Mogelijke voorraadstatussen
 
+	# Maak een willekeurige selectie van shelves
 	var shuffled_shelves = shelves.duplicate()
 	shuffled_shelves.shuffle()
 	var selected_shelves = shuffled_shelves.slice(0, min(max_locations, shuffled_shelves.size()))
 
+	# Ken aan elke geselecteerde shelf een product toe
 	for shelf in selected_shelves:
-		var product = products[randi() % products.size()]
+		var product = products[randi() % products.size()]  # Willekeurig product
 		var location = {
 			"product_id": product["product_id"],
 			"zone_id": shelf["zone_id"],
 			"shelf_id": shelf["shelf_id"],
-			"quantity": randi() % 50 + 1,
-			"batch_number": "BATCH-" + str(randi() % 10000).pad_zeros(4),
-			"date_received": "2024-" + str(randi() % 12 + 1).pad_zeros(2) + "-" + str(randi() % 28 + 1).pad_zeros(2),
-			"status": "available"
+			"quantity": randi() % 50 + 1,  # Willekeurige hoeveelheid tussen 1-50
+			"batch_number": "BATCH-" + str(randi() % 10000).pad_zeros(4),  # Batch nummer
+			"date_received": "2024-" + str(randi() % 12 + 1).pad_zeros(2) + "-" + str(randi() % 28 + 1).pad_zeros(2),  # Willekeurige datum in 2024
+			"status": "available"  # Standaard status
 		}
 		product_location_queue.append(location)
 
@@ -251,6 +287,7 @@ func generate_and_send_product_locations(products: Array, shelves: Array, max_lo
 	sending_locations = true
 	_send_next_product_location()
 
+# --- Verstuurt de volgende product locatie in de wachtrij naar de database ---
 func _send_next_product_location() -> void:
 	if current_location_index < product_location_queue.size():
 		var data = product_location_queue[current_location_index]
@@ -260,7 +297,7 @@ func _send_next_product_location() -> void:
 		print("Alle productlocaties verzonden.")
 		sending_locations = false
 		
-# --- POST functie ---
+# --- Stuurt data naar de API via een POST verzoek ---
 func post_data(url: String, data: Dictionary) -> void:
 	var http = $HTTPRequest
 	var headers = ["Content-Type: application/json"]
@@ -270,9 +307,9 @@ func post_data(url: String, data: Dictionary) -> void:
 	if result != OK:
 		print("POST request failed to start: ", result)
 
-# --- GET functie ---
+# --- Haalt data op van de API via een GET verzoek ---
 func get_data(table_name: String) -> void:
-	current_table = table_name  # Store the context
+	current_table = table_name  # Bewaar de huidige tabel context
 	var http = $HTTPRequest
 	var url = "http://192.168.133.123:5000/select/" + table_name
 	
@@ -284,7 +321,7 @@ func get_data(table_name: String) -> void:
 	else:
 		print("GET request sent successfully for table: ", table_name)
 
-# --- Callback bij voltooid verzoek ---
+# --- Callback functie die wordt aangeroepen na voltooiing van een HTTP verzoek ---
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var text = body.get_string_from_utf8()
 	var parsed = JSON.parse_string(text)
@@ -292,6 +329,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 		print("Kon JSON niet parsen.")
 		return
 
+	# Verwerk de ontvangen data op basis van de huidige tabel context
 	if typeof(parsed) == TYPE_ARRAY:
 		match current_table:
 			"zones":
@@ -321,7 +359,7 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 			_:
 				print("Onbekende tabel: ", current_table)
 
-	# Continue queue logic if needed
+	# Verwerk de volgende items in de verschillende wachtrijen indien nodig
 	if sending:
 		current_index += 1
 		_send_next_rack()
@@ -338,7 +376,8 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 		current_location_index += 1
 		_send_next_product_location()
 		
-# --- Data Handlers ---
+# --- Data Handler Functies ---
+# Deze functies verwerken de ontvangen data per datataype
 func handle_zones(data):
 	zones_data = data
 	print("Zones opgeslagen: ", zones_data)
@@ -361,6 +400,8 @@ func handle_items(data):
 	#print("Items ontvangen: ", data)
 
 
+# --- Product testdata ---
+# Lijst met realistische productnamen voor testdata
 var product_names = [
 	"LED Lamp", "Bureau", "Luidspreker", "Koffiezetapparaat", "Monitor 24 inch", "USB-C Kabel",
 	"HDMI Adapter", "Smartphone Houder", "Laptop Stand", "Toetsenbord", "Muis", "Powerbank",
@@ -381,6 +422,7 @@ var product_names = [
 	"Zwarte Verf", "Grijze Verf", "Multitool", "Tangenset", "Meetlint", "Waterpas", "Handschoenenset"
 ]
 
+# Lijst met bijbehorende productbeschrijvingen voor testdata
 var product_descriptions = [
 	"Energiezuinige LED-lamp met een levensduur van 25.000 uur.",
 	"Modern houten bureau met kabelmanagement systeem.",
@@ -399,7 +441,7 @@ var product_descriptions = [
 	"Dubbelwandige thermoskan die 12 uur warm houdt.",
 	"Bureauventilator met drie snelheidsstanden.",
 	"Stevige verlengsnoer van 5 meter met overspanningsbeveiliging.",
-	"Hardcover notitieboek met gelinieerde paginaâ€™s.",
+	"Hardcover notitieboek met gelinieerde pagina's.",
 	"Zware plakbandhouder met antislip onderzijde.",
 	"Wit A4 printerpapier van hoge kwaliteit (500 vel).",
 	"Rollen voor thermische etiketten, geschikt voor labelprinters.",
@@ -414,7 +456,7 @@ var product_descriptions = [
 	"Set voor- en achterlicht voor fiets, USB-oplaadbaar.",
 	"Compleet gereedschapsset in stevige koffer.",
 	"Set schroevendraaiers met magnetische punt.",
-	"Krachtige accuboormachine met twee accuâ€™s.",
+	"Krachtige accuboormachine met twee accu's.",
 	"Transparante opbergdoos van 60 liter met deksel.",
 	"Gestapelde kunststof kratten voor transport en opslag.",
 	"Universele werkhandschoenen met goede grip.",
