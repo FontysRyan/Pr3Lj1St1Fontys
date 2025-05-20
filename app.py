@@ -41,6 +41,15 @@ metadata.reflect(bind=engine)
 #     "postal_code": "3500BB"
 # })
 
+# eq: (equals, also default if no operator specified)
+# gt: (greater than)
+# lt: (less than)
+# gte: (greater than or equal to)
+# lte: (less than or equal to)
+# like: (SQL LIKE with added % wildcards)
+# in: (value in a comma-separated list)
+# notin: (value not in a comma-separated list)
+
 
 # INSERT ENDPOINT
 @app.route("/insert/<table_name>", methods=["POST"])
@@ -56,34 +65,86 @@ def insert_into(table_name):
     
     return jsonify({"status": "success", "message": f"Inserted into {table_name}"}), 201
 
-# # SELECT ENDPOINT
 @app.route("/select/<table_name>", methods=["GET"])
 def select_from(table_name):
-    args = request.args.to_dict()
-    
-    # Kolommen om op te halen, standaard '*'
-    columns = args.pop("columns", "*")
+    args = request.args.to_dict(flat=False)  # Get all query params as lists
+   
+    # Columns to retrieve, default '*'
+    columns = args.pop("columns", ["*"])[0]
     if columns != "*":
         column_list = [col.strip() for col in columns.split(",")]
         column_str = ", ".join(column_list)
     else:
         column_str = "*"
-    
-    # Filters (overige query parameters)
+   
+    # Build query
     query = f"SELECT {column_str} FROM {table_name}"
-    
+   
+    # Process conditions
     if args:
-        conditions = " AND ".join(f"{k} = :{k}" for k in args)
-        query += f" WHERE {conditions}"
-
-    query = text(query)
-
-    with engine.connect() as conn:
-        result = conn.execute(query, args)
-        rows = result.mappings().all()
-
-    return jsonify(rows)
-
+        conditions = []
+        query_params = {}
+        
+        for key, values in args.items():
+            for i, value in enumerate(values):
+                param_name = f"{key}_{i}"
+                
+                # Check for operator prefix (eq:, gt:, lt:, in:, etc.)
+                if ":" in value:
+                    op, val = value.split(":", 1)
+                    
+                    if op == "eq" or op == "":
+                        conditions.append(f"{key} = :{param_name}")
+                        query_params[param_name] = val
+                    elif op == "gt":
+                        conditions.append(f"{key} > :{param_name}")
+                        query_params[param_name] = val
+                    elif op == "lt":
+                        conditions.append(f"{key} < :{param_name}")
+                        query_params[param_name] = val
+                    elif op == "gte":
+                        conditions.append(f"{key} >= :{param_name}")
+                        query_params[param_name] = val
+                    elif op == "lte":
+                        conditions.append(f"{key} <= :{param_name}")
+                        query_params[param_name] = val
+                    elif op == "like":
+                        conditions.append(f"{key} LIKE :{param_name}")
+                        query_params[param_name] = f"%{val}%"
+                    elif op == "in":
+                        in_values = val.split(',')
+                        in_params = [f":{param_name}_{j}" for j in range(len(in_values))]
+                        conditions.append(f"{key} IN ({', '.join(in_params)})")
+                        for j, in_val in enumerate(in_values):
+                            query_params[f"{param_name}_{j}"] = in_val
+                    elif op == "notin":
+                        in_values = val.split(',')
+                        in_params = [f":{param_name}_{j}" for j in range(len(in_values))]
+                        conditions.append(f"{key} NOT IN ({', '.join(in_params)})")
+                        for j, in_val in enumerate(in_values):
+                            query_params[f"{param_name}_{j}"] = in_val
+                else:
+                    # Default to equality
+                    conditions.append(f"{key} = :{param_name}")
+                    query_params[param_name] = value
+        
+        if conditions:
+            query += f" WHERE {' AND '.join(conditions)}"
+            
+        query = text(query)
+        with engine.connect() as conn:
+            result = conn.execute(query, query_params)
+            # Convert RowMapping objects to dictionaries
+            rows = [dict(row) for row in result.mappings().all()]
+        return jsonify(rows)
+    else:
+        query = text(query)
+        with engine.connect() as conn:
+            result = conn.execute(query)
+            # Convert RowMapping objects to dictionaries
+            rows = [dict(row) for row in result.mappings().all()]
+        return jsonify(rows)
+    
 # # DELETE ENDPOINT
 @app.route("/delete/<table_name>", methods=["DELETE"])
 def delete_from(table_name):
@@ -99,6 +160,23 @@ def delete_from(table_name):
         conn.commit()
     
     return jsonify({"deleted_rows": result.rowcount})
+
+@app.route("/select/racks/by-warehouse/<int:warehouse_id>", methods=["GET"])
+def get_racks_by_warehouse(warehouse_id):
+    try:
+        query = text("""
+            SELECT r.*
+            FROM racks r
+            JOIN zones z ON r.zone_id = z.zone_id
+            WHERE z.warehouse_id = :warehouse_id
+        """)
+        with engine.connect() as conn:
+            result = conn.execute(query, {"warehouse_id": warehouse_id})
+            rows = [dict(row) for row in result.mappings().all()]
+        return jsonify(rows)
+    except Exception as e:
+        print("ERROR:", str(e))
+        return jsonify({"error": str(e)}), 500
 
 # GET PRODUCTS BY WAREHOUSE ENDPOINT
 @app.route("/select/products/by-warehouse/<int:warehouse_id>", methods=["GET"])
