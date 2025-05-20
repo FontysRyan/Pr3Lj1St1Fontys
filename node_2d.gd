@@ -32,7 +32,7 @@ func _unhandled_input(event):
 		print("Tile clicked at ", cell_pos, " has name: ", name)
 	
 func CalculateZone():
-	var ZoneHeight: int = 2 + compartment_ammount
+	var ZoneHeight: int = 4 + compartment_ammount
 	var zonewidth: int = calculate_zone_width(rack_ammount)
 	#print("=== Zone Dimension Calculation ===")
 	#print("Width Calculation:")
@@ -91,7 +91,7 @@ func PlaceRacks():
 		rack_nummer = rack_nummer + 1
 		#print(rack_nummer)
 		compartment_nummer = 1
-		for a in range(1, compartment_ammount + 1): #1 vertical line of floor
+		for a in range(2, compartment_ammount + 2): #1 vertical line of floor
 			tile_map_layer.set_cell(Vector2i(startpos,a), 1, Vector2i(1, 2), 0)
 			var last_tile_pos = Vector2i(startpos,a)
 			custom_tile_names[last_tile_pos] = "Compartment: A_"+ str(rack_nummer) + "_"+ str(compartment_nummer)
